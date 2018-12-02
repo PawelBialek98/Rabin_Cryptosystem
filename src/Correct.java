@@ -117,28 +117,24 @@ public class Correct {
                         pom = jacobiSymbol.computeJacobiSymbol(szyfry.x1[i/3],N);
                         if(Matma.valueOf((1+pom)/2).equals(zaszyfrowany[i+2])) {
                             prawda[i/3] = (byte) (pom1-128);
-                            continue;
                         }
                     }
-                    if(szyfry.x2[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
+                    else if(szyfry.x2[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
                         pom = jacobiSymbol.computeJacobiSymbol(szyfry.x2[i/3],N);
                         if(Matma.valueOf((1+pom)/2).equals(zaszyfrowany[i+2])) {
                             prawda[i/3] = (byte) (pom2-128);
-                            continue;
                         }
                     }
-                    if(szyfry.x3[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
+                    else if(szyfry.x3[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
                         pom = jacobiSymbol.computeJacobiSymbol(szyfry.x3[i/3],N);
                         if(Matma.valueOf((1+pom)/2).equals(zaszyfrowany[i+2])) {
                             prawda[i/3] = (byte) (pom3-128);
-                            continue;
                         }
                     }
-                    if(szyfry.x4[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
+                    else if(szyfry.x4[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
                         pom = jacobiSymbol.computeJacobiSymbol(szyfry.x4[i/3],N);
                         if(Matma.valueOf((1+pom)/2).equals(zaszyfrowany[i+2])) {
                             prawda[i/3] = (byte) (pom4-128);
-                            continue;
                         }
                     }
                 }

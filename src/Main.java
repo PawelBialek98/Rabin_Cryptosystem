@@ -96,7 +96,7 @@ public class Main extends Application {
             cipherInput.decipher(zaszyfrowany, n, p, q);
             Correct solution = new Correct(cipherInput, fileContent, zaszyfrowany, n);
             byte[] odszyfrowany = solution.choose();
-            System.out.println("P: " + p);
+            /*System.out.println("P: " + p);
             System.out.println("Q: " + q);
             System.out.println("N: " + n);
             for(int i=0; i< fileContent.length; i++){
@@ -106,7 +106,7 @@ public class Main extends Application {
                     System.out.println("    Oraz ich pozycja" + i);
                     System.out.println(solution.szyfry.x1[i] + "  " + solution.szyfry.x2[i] + "  " + solution.szyfry.x3[i] + "  " + solution.szyfry.x4[i]);
                 }
-            }
+            }*/
             String ss2 = new String(odszyfrowany);
             decipherOutput.setText(ss2);
             cipherInput.saveToFile(odszyfrowany, fileoutInputD.getText());

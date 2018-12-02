@@ -92,16 +92,16 @@ public class Correct {
             JacobiSymbol jacobiSymbol = new JacobiSymbol();
                 for(int i=0; i< zaszyfrowany.length; i+=3){
                     int pom1 = szyfry.x1[i/3].intValue();
-                    System.out.println("X1: " + szyfry.x1[i/3]);
-                    System.out.println("X1: " + pom1);
+                    //System.out.println("X1: " + szyfry.x1[i/3]);
+                    //System.out.println("X1: " + pom1);
                     int pom2 = szyfry.x2[i/3].intValue();
-                    System.out.println("X2: " + szyfry.x2[i/3]);
-                    System.out.println("X2: " + pom2);
+                    //System.out.println("X2: " + szyfry.x2[i/3]);
+                    //System.out.println("X2: " + pom2);
                     int pom3 = szyfry.x3[i/3].intValue();
-                    System.out.println("X3: " + szyfry.x3[i/3]);
-                    System.out.println("X3: " + pom3);
+                    //System.out.println("X3: " + szyfry.x3[i/3]);
+                    //System.out.println("X3: " + pom3);
                     int pom4 = szyfry.x4[i/3].intValue();
-                    System.out.println("X4: " + szyfry.x4[i/3]);
+                    /*System.out.println("X4: " + szyfry.x4[i/3]);
                     System.out.println("X4: " + pom4);
                     System.out.println("B0: " + zaszyfrowany[i+1]);
                     System.out.println("B1: " + zaszyfrowany[i+2]);
@@ -112,7 +112,7 @@ public class Correct {
                     System.out.println("B1 dla Pom1: " + Matma.valueOf((1+jacobiSymbol.computeJacobiSymbol(Matma.valueOf(pom1),N))/2));
                     System.out.println("B1 dla Pom2: " + Matma.valueOf((1+jacobiSymbol.computeJacobiSymbol(Matma.valueOf(pom2),N))/2));
                     System.out.println("B1 dla Pom3: " + Matma.valueOf((1+jacobiSymbol.computeJacobiSymbol(Matma.valueOf(pom3),N))/2));
-                    System.out.println("B1 dla Pom4: " + Matma.valueOf((1+jacobiSymbol.computeJacobiSymbol(Matma.valueOf(pom4),N))/2));
+                    System.out.println("B1 dla Pom4: " + Matma.valueOf((1+jacobiSymbol.computeJacobiSymbol(Matma.valueOf(pom4),N))/2));*/
                     if(szyfry.x1[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
                         pom = jacobiSymbol.computeJacobiSymbol(szyfry.x1[i/3],N);
                         if(Matma.valueOf((1+pom)/2).equals(zaszyfrowany[i+2])) {

@@ -1,6 +1,7 @@
 import Library.Matma;
 import java.lang.Byte;
 import java.lang.Object;
+import java.util.Arrays;
 
 public class Correct {
 
@@ -17,7 +18,48 @@ public class Correct {
     }
 
     byte[] choose() {
-        byte[] prawda = new byte[zaszyfrowany.length/3];
+        byte[] prawda = new byte[21*zaszyfrowany.length];
+        System.out.println("Prawda length: " + prawda.length);
+
+        for(int i=0; i < zaszyfrowany.length; i++){
+            byte[] pom;
+            byte[] ala = "Ala ma kota".getBytes();
+            byte[] pom1 = szyfry.x1[i].toByteArray();
+            byte[] ala1 = Arrays.copyOfRange(pom1, 0, 11);
+            byte[] pom2 = szyfry.x2[i].toByteArray();
+            byte[] ala2 = Arrays.copyOfRange(pom2, 0, 11);
+            byte[] pom3 = szyfry.x3[i].toByteArray();
+            byte[] ala3 = Arrays.copyOfRange(pom3, 0, 11);
+            byte[] pom4 = szyfry.x4[i].toByteArray();
+            byte[] ala4 = Arrays.copyOfRange(pom4, 0, 11);
+            if(Arrays.equals(ala, ala1)){
+                pom = Arrays.copyOfRange(pom1, 11, 32);
+                for(int j=0; j<21;j++){
+                    prawda[21*i + j] = pom[j];
+                }
+            }
+            else if(Arrays.equals(ala, ala2)){
+                pom = Arrays.copyOfRange(pom2, 11, 32);
+                for(int j=0; j<21;j++){
+                    prawda[21*i + j] = pom[j];
+                }
+            }
+            else if(Arrays.equals(ala, ala3)){
+                pom = Arrays.copyOfRange(pom3, 11, 32);
+                for(int j=0; j<21;j++){
+                    prawda[21*i + j] = pom[j];
+                }
+            }
+            else if(Arrays.equals(ala, ala4)){
+                pom = Arrays.copyOfRange(pom4, 11, 32);
+                for(int j=0; j<21;j++){
+                    prawda[21*i + j] = pom[j];
+                }
+            }
+        }
+
+        byte[] prawdanowa = Arrays.copyOfRange(prawda, 0, prawda.length-szyfry.ile_byte_z_zerami);
+
 
         /*for (int i = 0; i < szyfry.x1.length; i++) {// Prawdopodobnie ten for nie dziala
             byte tmp = 0;
@@ -87,7 +129,7 @@ public class Correct {
             }*/
             //for(int j=0; j<zaszyfrowany.length; j++){
 
-            Matma TWO = new Matma("2");
+            /*Matma TWO = new Matma("2");
             int pom;
             JacobiSymbol jacobiSymbol = new JacobiSymbol();
                 for(int i=0; i< zaszyfrowany.length; i+=3){
@@ -113,31 +155,35 @@ public class Correct {
                     System.out.println("B1 dla Pom2: " + Matma.valueOf((1+jacobiSymbol.computeJacobiSymbol(Matma.valueOf(pom2),N))/2));
                     System.out.println("B1 dla Pom3: " + Matma.valueOf((1+jacobiSymbol.computeJacobiSymbol(Matma.valueOf(pom3),N))/2));
                     System.out.println("B1 dla Pom4: " + Matma.valueOf((1+jacobiSymbol.computeJacobiSymbol(Matma.valueOf(pom4),N))/2));*/
-                    if(szyfry.x1[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
+                   /* if(szyfry.x1[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
                         pom = jacobiSymbol.computeJacobiSymbol(szyfry.x1[i/3],N);
                         if(Matma.valueOf((1+pom)/2).equals(zaszyfrowany[i+2])) {
                             prawda[i/3] = (byte) (pom1-128);
+                            continue;
                         }
                     }
-                    else if(szyfry.x2[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
+                    if(szyfry.x2[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
                         pom = jacobiSymbol.computeJacobiSymbol(szyfry.x2[i/3],N);
                         if(Matma.valueOf((1+pom)/2).equals(zaszyfrowany[i+2])) {
                             prawda[i/3] = (byte) (pom2-128);
+                            continue;
                         }
                     }
-                    else if(szyfry.x3[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
+                    if(szyfry.x3[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
                         pom = jacobiSymbol.computeJacobiSymbol(szyfry.x3[i/3],N);
                         if(Matma.valueOf((1+pom)/2).equals(zaszyfrowany[i+2])) {
                             prawda[i/3] = (byte) (pom3-128);
+                            continue;
                         }
                     }
-                    else if(szyfry.x4[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
+                    if(szyfry.x4[i/3].mod(TWO).equals(zaszyfrowany[i+1])){
                         pom = jacobiSymbol.computeJacobiSymbol(szyfry.x4[i/3],N);
                         if(Matma.valueOf((1+pom)/2).equals(zaszyfrowany[i+2])) {
                             prawda[i/3] = (byte) (pom4-128);
+                            continue;
                         }
                     }
-                }
-        return prawda;
+                }*/
+        return prawdanowa;
     }
 }
